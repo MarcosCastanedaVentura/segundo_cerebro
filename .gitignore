@@ -1,0 +1,19 @@
+# Fuente documental primaria: binarios grandes, no se benefician de versionado con git.
+# Respaldar con Time Machine / nube, no con git.
+raw/
+
+# Vector DB regenerable desde raw/ vía ingest/run.py — no se versiona.
+index/
+
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
