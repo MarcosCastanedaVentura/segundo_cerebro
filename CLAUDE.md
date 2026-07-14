@@ -266,6 +266,9 @@ segundo_cerebro/
    vez — comprueba credenciales, sugiere empezar por un piloto si es la primera vez, ejecuta `ingest/run.py` y
    reporta el resultado. Para arrancar una sesión de estudio con el protocolo completo del BLOQUE 7, usa el skill
    `/estudiar` (`.claude/skills/estudiar/`).
+6. Para auditar la higiene del wiki (wikilinks sin resolver, notas sin fuente, posibles duplicados, carpetas
+   sobrecargadas, contradicciones) usa el skill `/salud` (`.claude/skills/salud/`) — a demanda, nunca en background.
+   Evita que un error escrito una vez en el wiki se dé por verdad en sesiones futuras sin que nadie lo revise.
 
 **Mantenimiento del pipeline:**
 - La ingesta es siempre a demanda (Marcos la pide, normalmente vía `/indexar`) — no hay watcher ni cron vigilando
