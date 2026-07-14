@@ -11,10 +11,11 @@ no genera respuestas de contenido ni crea notas en `wiki/` por sí mismo.
 
 ## 1. Comprobar credenciales antes de nada
 
-Lee `.env` en la raíz del proyecto. Si no existe, o le faltan `MATHPIX_APP_ID`, `MATHPIX_APP_KEY` u
-`OPENAI_API_KEY`, dilo explícitamente a Marcos y para aquí — copia `.env.example` a `.env` como
-sugerencia, pero no inventes claves ni sigas sin ellas. Sin esto el pipeline falla fichero a fichero
-de forma confusa; mejor cortar antes.
+Lee `.env` en la raíz del proyecto. Si no existe, o le falta `OPENAI_API_KEY` (obligatoria, para los
+embeddings), dilo explícitamente a Marcos y para aquí — copia `.env.example` a `.env` como sugerencia,
+pero no inventes claves ni sigas sin ellas. `MATHPIX_APP_ID`/`MATHPIX_APP_KEY` son opcionales: el OCR
+por defecto es MinerU (local, gratis, corre como subproceso sin credenciales) — solo hacen falta si en
+algún momento se migra alguna asignatura a Mathpix por calidad de fórmulas (ver BLOQUE 8 de CLAUDE.md).
 
 ## 2. Decidir el alcance
 
