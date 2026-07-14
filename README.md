@@ -19,7 +19,7 @@ de otra completamente distinta.
 segundo_cerebro/
 ├── CLAUDE.md          # system prompt del tutor: identidad, metodología socrática, arquitectura
 ├── ingest/            # pipeline de ingesta agnóstico a asignatura
-│   ├── extract.py     # PDF/imagen → texto, OCR de fórmulas vía Mathpix (fórmulas/química a LaTeX)
+│   ├── extract.py     # PDF/imagen → texto, OCR de fórmulas vía MinerU (fórmulas/química a LaTeX)
 │   ├── chunk.py        # chunking semántico por párrafo + metadata (asignatura, tema, curso, página)
 │   ├── embed.py          # embeddings (OpenAI) + upsert incremental a la colección única de Chroma
 │   └── run.py              # orquestación con manifest.json (hash SHA-256) — solo procesa lo nuevo/modificado
@@ -36,9 +36,9 @@ segundo_cerebro/
 - **Vector DB**: [Chroma](https://www.trychroma.com/), embebida y local — sin servidor, una única colección
   filtrable por metadata.
 - **Embeddings**: OpenAI `text-embedding-3-small`.
-- **OCR de fórmulas**: [Mathpix Convert API](https://mathpix.com/) — conversión a LaTeX de notación
-  matemática/química en todas las páginas del corpus (a este volumen, el coste es de céntimos por página, no
-  compensa la complejidad de detectar heurísticamente qué páginas lo necesitan).
+- **OCR de fórmulas**: [MinerU](https://github.com/opendatalab/mineru) — local y gratis, conversión a LaTeX de
+  notación matemática/química, sin depender de una API de pago. [Mathpix Convert API](https://mathpix.com/) queda
+  documentada como upgrade opcional si en alguna asignatura la calidad de OCR se queda corta.
 - **Interfaz**: Claude Code — sin backend ni frontend propios; el agente lee `wiki/` y consulta el índice
   directamente en la sesión.
 
